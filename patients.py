@@ -7,13 +7,10 @@ class Patient():
         self.exams = [] #List of exams associated with patient id
 
     def add_exam(self, exam_id):
-        pass
+        self.exams.append(exam_id)
 
     def remove_exam(self, exam_id):
-        pass
-
-    def get_exams(self):
-        return self.exams
+        self.exams.remove(exam_id)
 
     #For printing the output
     def __str__(self):
@@ -29,4 +26,4 @@ class Exam():
 
     def __init__(self, exam_id, patient_id):
         self.id = exam_id
-        self.patient_id = exam_id
+        self.patient_id = patient_id

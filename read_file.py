@@ -2,16 +2,32 @@ import sys
 from patients import Patient, Exam
 
 def add_patient(patient_list, name, id):
-    pass
+    #Check to make sure another patient with the same id doesn't already exist
+    if id not in patient_list.keys():
+        patient_list[id] = Patient(name, id)
 
 def add_exam(patient_list, exam_list, patient_id, exam_id):
-    pass
+    #Need to check a universal list of exams to see if the same id already exists, rather than just the patients exams
+    #Also verify that the patient exists
+    if exam_id not in exam_list.keys() and patient_id in patient_list.keys():
+        exam_list[exam_id] = Exam(exam_id, patient_id)
+        patient_list[patient_id].add_exam(exam_id)
 
 def del_patient(patient_list, exam_list, id):
-    pass
+    #Make sure patient exists
+    if id in patient_list.keys():
+        exams = patient_list[id].exams
+        #Clear exams associated with the patient from the list before deleting the patient
+        for exam_id in exams:
+            del exam_list[exam_id]
+        del patient_list[id]
 
 def del_exam(patient_list, exam_list, exam_id):
-    pass
+    #Make sure exam exists
+    if exam_id in exam_list.keys():
+        patient_id = exam_list[exam_id].patient_id #Get the patient associated with the exam
+        patient_list[patient_id].remove_exam(exam_id) #Remove exam from patients list
+        del exam_list[exam_id]
 
 def parse_file(file_name):
     f = open(file_name, "r")
