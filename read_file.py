@@ -34,7 +34,6 @@ def parse_file(file_name):
     commands = f.read().splitlines() #Doing this instead of readlines to get rid of newlines
     f.close()
 
-
     #Keeping patient and exam records in a dictionary keyed by their unique ID
     patient_list = {}
     exam_list = {}
@@ -60,9 +59,9 @@ def parse_file(file_name):
     return_str = ""    
     for patient in patient_list.values():
         print(patient)
-        return_str += str(patient)
-
-    return return_str
+        return_str += str(patient) + "\n"
+    
+    return return_str[:-1] #Strip the last char (\n)
 
 if __name__ == '__main__':
     #I'm assuming this file will be called with the format

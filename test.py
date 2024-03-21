@@ -3,13 +3,14 @@ from read_file import parse_file
 def run_tests(input_files, expected_outputs):
 
     for i in range(0, len(input_files)):
+        print("Function Output")
         return_str = parse_file(input_files[i])
         #parse_file will return the string it outputs with print
 
         #Open the expected output text and assert that it matches
         with open(expected_outputs[i]) as output:
             output = output.read()
-            print("Expected Output:\n" + output)
+            print("Expected Output:\n" + output + "\n")
             assert return_str == output, "Input does not match expected output"
 
     print("All tests passed")
