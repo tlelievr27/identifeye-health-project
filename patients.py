@@ -1,4 +1,4 @@
-def Patient():
+class Patient():
     #Class for a patient record
 
     def __init__(self, name, id):
@@ -16,7 +16,7 @@ def Patient():
         pass
 
 
-def Exam():
+class Exam():
     #Class for an exam record
 
     def __init__(self, exam_id, patient_id):
