@@ -15,6 +15,14 @@ class Patient():
     def remove_exam(self, exam_id):
         pass
 
+    #For printing the output
+    def __str__(self):
+        return f'Name: {self.name}, Id: {self.id}, Exam Count: {len(self.exams)}'
+
+    #For returning the output string to testing function
+    def __repr__(self):
+        return f'Name: {self.name}, Id: {self.id}, Exam Count: {len(self.exams)}\n'
+
 
 class Exam():
     #Class for an exam record

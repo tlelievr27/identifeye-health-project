@@ -4,6 +4,9 @@ def run_tests(input_files, expected_outputs):
 
     for i in range(0, len(input_files)):
         return_str = parse_file(input_files[i])
+        #parse_file will return the string it outputs with print
+
+        #Open the expected output text and assert that it matches
         with open(expected_outputs[i]) as output:
             output = output.read()
             print("Expected Output:\n" + output)
