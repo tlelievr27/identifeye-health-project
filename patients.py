@@ -5,15 +5,15 @@ class Patient():
         self.id = id
         self.name = name
         self.exams = [] #List of exams associated with patient id
-    
-    def get_num_exams(self): #For convenience
-        return len(self.exams)
 
     def add_exam(self, exam_id):
         pass
 
     def remove_exam(self, exam_id):
         pass
+
+    def get_exams(self):
+        return self.exams
 
     #For printing the output
     def __str__(self):

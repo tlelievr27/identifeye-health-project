@@ -4,13 +4,13 @@ from patients import Patient, Exam
 def add_patient(patient_list, name, id):
     pass
 
-def add_exam(patient_list, exam_list, exam_id):
+def add_exam(patient_list, exam_list, patient_id, exam_id):
     pass
 
 def del_patient(patient_list, exam_list, id):
     pass
 
-def del_exam(patient_list, exam_list, id):
+def del_exam(patient_list, exam_list, exam_id):
     pass
 
 def parse_file(file_name):
@@ -29,10 +29,16 @@ def parse_file(file_name):
         if command[:3] == "ADD": 
             params = command.split(maxsplit=3) #Setting maxsplit to 3 so the name doesn't get split but everything else does
             if params[1] == "PATIENT":
-                add_patient(patient_list, params[3], params[2])                
+                add_patient(patient_list, params[3], params[2])
+            elif params[1] == "EXAM":
+                add_exam(patient_list, exam_list, params[2], params[3])           
 
         elif command[:3] == "DEL":
             params = command.split() #No spaces in IDs used for deletion so no maxsplit needed
+            if params[1] == "PATIENT":
+                del_patient(patient_list, exam_list, params[2])
+            elif params[1] == "EXAM":
+                del_exam(patient_list, exam_list, params[2])      
 
     #Returning the print output as a string for testing function
     return_str = ""    
